@@ -5,7 +5,7 @@
         <tr>
             <th>ID</th>
             <th>Judul</th>
-            <th>Status</th>
+            <th>Tanggal</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -17,7 +17,7 @@
                         <b><?= $row['judul']; ?></b>
                         <p><small><?= substr($row['isi'], 0, 50); ?></small></p>
                     </td>
-                    <td><?= $row['status']; ?></td>
+                    <td><?= $row['tanggal']; ?></td>
                     <td>
                         <a class="btn" href="<?= base_url('/admin/edit/' . $row['id']); ?>">Ubah</a>
                         <a class="btn btn-danger" onclick="return confirm('Yakin menghapus data?');"
@@ -35,7 +35,7 @@
         <tr>
             <th>ID</th>
             <th>Judul</th>
-            <th>Status</th>
+            <th>Tanggal</th>
             <th>Aksi</th>
         </tr>
     </tfoot>

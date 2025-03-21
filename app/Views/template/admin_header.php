@@ -19,4 +19,4 @@
             <a href="<?= base_url('/admin/add'); ?>">Tambah Artikel</a>
         </nav>
         <section id="wrapper">
-            <section id="main">
+            <section id="main-admin">

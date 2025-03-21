@@ -25,6 +25,7 @@ class Artikel extends BaseController
             $artikel = new ArtikelModel();
             $artikel->insert([
                 'judul' => $this->request->getPost('judul'),
+                'kategori' => $this->request->getPost('kategori'),
                 'isi' => $this->request->getPost('isi'),
                 'slug' => url_title($this->request->getPost('judul')),
             ]);
@@ -47,6 +48,7 @@ class Artikel extends BaseController
         if ($isDataValid) {
             $artikel->update($id, [
                 'judul' => $this->request->getPost('judul'),
+                'kategori' => $this->request->getPost('kategori'),
                 'isi'   => $this->request->getPost('isi'),
             ]);
             return redirect('admin');

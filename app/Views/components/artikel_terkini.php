@@ -1,4 +1,4 @@
-<?= $this->section('content-sidebar') ?>
+<?= $this->section('content-terkini') ?>
 
 <ul>
     <?php foreach ($artikel as $row): ?>

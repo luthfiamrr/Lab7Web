@@ -10,6 +10,7 @@ $routes->setAutoRoute(false);
 
 $routes->get('/page', 'Home::index');
 $routes->get('page/home', 'Home::index');
+$routes->get('/page/home/(:segment)', 'home::kategori/$1');
 $routes->get('page/artikel/(:any)', 'Page::artikel/$1');
 $routes->get('page/about', 'Page::about',);
 $routes->get('page/contact', 'Page::contact');

@@ -11,7 +11,7 @@
 <body>
     <div id="container">
         <header>
-            <h1>Resume</h1>
+            <h1>Portal Artikel</h1>
         </header>
         <nav>
             <a href="<?= base_url('/page/home'); ?>">Home</a>
@@ -24,10 +24,15 @@
                 <?= $this->renderSection('content') ?>
             </section>
             <aside id="sidebar">
-                <?= view_cell('App\\Cells\\ArtikelTerkini::render') ?>
                 <div class="widget-box">
+                    <?= view_cell('App\\Cells\\ArtikelTerkini::render') ?>
                     <h3 class="title">Artikel Terkini</h3>
-                    <?= $this->renderSection('content-sidebar') ?>
+                    <?= $this->renderSection('content-terkini') ?>
+                </div>
+                <div class="widget-box">
+                    <?= view_cell('App\\Cells\\ArtikelKategori::render') ?>
+                    <h3 class="title">Kategori</h3>
+                    <?= $this->renderSection('content-kategori') ?>
                 </div>
             </aside>
         </section>

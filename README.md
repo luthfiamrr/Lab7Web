@@ -313,3 +313,47 @@ Meningkatkan performa dengan caching.
 
 View Cell: Untuk komponen kecil yang dapat digunakan ulang, dipanggil dengan view_cell(), dan memiliki kelas sendiri.
 View Biasa: Untuk halaman utama atau tampilan besar, dipanggil dengan return view() dari Controller.
+
+## Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
+
+1. Menambahkan data baru / column baru untuk kategori
+
+![Screenshot](public/readme/63.png)
+
+2. Modifikasi model di `app/Models/ArtikelModel.php`
+
+![Screenshot](public/readme/64.png)
+
+3. Membuat file `ArtikelKategori.php` baru pada folder `app/Cells/`.
+
+![Screenshot](public/readme/56.png)
+
+4. Membuat file `artikel_kategori.php` baru pada folder `app/Views/components`.
+
+![Screenshot](public/readme/57.png)
+
+5. Modifikasi atau menambahkan code di file `app/Views/layout/main.php`
+
+![Screenshot](public/readme/58.png)
+
+6. Buat route baru di `app/Config/Routes.php`
+
+`$routes->get('/page/kategori/(:segment)', 'Page::kategori/$1');`
+
+7. Modifikasi atau menambahkan methode kategori controller di `app/Controllers/Home.php`
+
+![Screenshot](public/readme/59.png)
+
+8. Berikut adalah hasil memfilter artikel berdasarkan kategori:
+
+before filter:
+![Screenshot](public/readme/60.png)
+
+after filter (kategori: CRUD):
+![Screenshot](public/readme/61.png)
+
+after filter (kategori: PHP):
+![Screenshot](public/readme/62.png)
+
+detail artikel:
+![Screenshot](public/readme/65.png)

@@ -13,4 +13,12 @@ class Home extends BaseController
         $artikel = $model->findAll();
         return view('home', compact('artikel', 'title'));
     }
+
+    public function kategori($kategori)
+    {
+        $model = new ArtikelModel();
+        $artikel = $model->where('kategori', $kategori)->findAll();
+
+        return view('home', ['artikel' => $artikel, 'title' => 'Kategori: ' . ucfirst($kategori)]);
+    }
 }
