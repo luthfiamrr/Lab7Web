@@ -9,38 +9,51 @@ class Artikel extends BaseController
     public function admin_index()
     {
         $title = 'Daftar Artikel';
+        $q = $this->request->getVar('q') ?? '';
         $model = new ArtikelModel();
-        $artikel = $model->findAll();
-        return view('admin_index', compact('artikel', 'title'));
+
+        $artikel = $model->like('judul', $q)->paginate(4);
+
+        $data = [
+            'title' => $title,
+            'q' => $q,
+            'artikel' => $artikel,
+            'pager' => $model->pager,
+        ];
+
+        return view('admin/admin_index', $data);
     }
+
 
     public function add()
     {
-        // validasi data.
         $validation = \Config\Services::validation();
         $validation->setRules(['judul' => 'required']);
         $isDataValid = $validation->withRequest($this->request)->run();
 
         if ($isDataValid) {
+            $file = $this->request->getFile('gambar');
+            $file->move(ROOTPATH . 'public/gambar');
+
             $artikel = new ArtikelModel();
             $artikel->insert([
                 'judul' => $this->request->getPost('judul'),
                 'kategori' => $this->request->getPost('kategori'),
                 'isi' => $this->request->getPost('isi'),
                 'slug' => url_title($this->request->getPost('judul')),
+                'gambar' => $file->getName(),
             ]);
-            return redirect('admin/add');
+            return redirect()->to('admin');
         }
 
         $title = "Tambah Artikel";
-        return view('add', compact('title'));
+        return view('admin/add', compact('title'));
     }
 
     public function edit($id)
     {
         $artikel = new ArtikelModel();
 
-        // Validasi data
         $validation = \Config\Services::validation();
         $validation->setRules(['judul' => 'required']);
         $isDataValid = $validation->withRequest($this->request)->run();
@@ -51,19 +64,18 @@ class Artikel extends BaseController
                 'kategori' => $this->request->getPost('kategori'),
                 'isi'   => $this->request->getPost('isi'),
             ]);
-            return redirect('admin');
+            return redirect()->to('admin');
         }
 
-        // Ambil data lama
         $data = $artikel->where('id', $id)->first();
         $title = "Edit Artikel";
-        return view('edit', compact('title', 'data'));
+        return view('admin/edit', compact('title', 'data'));
     }
 
     public function delete($id)
     {
         $artikel = new ArtikelModel();
         $artikel->delete($id);
-        return redirect('admin');
+        return redirect()->to('admin');
     }
 }

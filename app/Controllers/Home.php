@@ -11,7 +11,7 @@ class Home extends BaseController
         $title = 'Daftar Artikel';
         $model = new ArtikelModel();
         $artikel = $model->findAll();
-        return view('home', compact('artikel', 'title'));
+        return view('public/home', compact('artikel', 'title'));
     }
 
     public function kategori($kategori)
@@ -19,6 +19,6 @@ class Home extends BaseController
         $model = new ArtikelModel();
         $artikel = $model->where('kategori', $kategori)->findAll();
 
-        return view('home', ['artikel' => $artikel, 'title' => 'Kategori: ' . ucfirst($kategori)]);
+        return view('public/home', ['artikel' => $artikel, 'title' => 'Kategori: ' . ucfirst($kategori)]);
     }
 }

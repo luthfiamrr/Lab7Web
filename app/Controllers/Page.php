@@ -9,7 +9,7 @@ class Page extends BaseController
 {
     public function about()
     {
-        return view('about', [
+        return view('public/about', [
             'title'   => 'Tentang Saya',
             'content' => 'Halo! Saya adalah seorang web developer.'
         ]);
@@ -26,12 +26,12 @@ class Page extends BaseController
 
         $title = $artikel['judul'];
 
-        return view('artikel', compact('artikel', 'title'));
+        return view('public/artikel', compact('artikel', 'title'));
     }
 
     public function contact()
     {
-        return view('contact', [
+        return view('public/contact', [
             'title'   => 'Hubungi Saya',
             'content' => 'instagram: luthfi_amr.'
         ]);

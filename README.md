@@ -357,3 +357,122 @@ after filter (kategori: PHP):
 
 detail artikel:
 ![Screenshot](public/readme/65.png)
+
+# Praktikum 4
+
+### Membuat tabel user.
+
+![Screenshot](public/readme/66.png)
+
+### Membuat model user.
+
+Membuat Model untuk memproses data Login. Buat file baru pada direktori
+`app/Models` dengan nama `UserModel.php`.
+
+![Screenshot](public/readme/67.png)
+
+### Membuat Controllers user.
+
+Buat Controller baru dengan nama `User.php` pada direktori `app/Controllers`. Kemudian
+tambahkan method index() untuk menampilkan daftar user, dan method login() untuk proses login.
+
+![Screenshot](public/readme/68.png)
+
+### Membuat view login.
+
+Buat direktori baru dengan nama `user` pada direktori `app/views`, kemudian buat file baru
+dengan nama `login.php`.
+
+![Screenshot](public/readme/69.png)
+
+### Membuat database seeder.
+
+1. Untuk keperluan ujicoba modul
+   login, kita perlu memasukkan data user dan password kedaalam database. Untuk itu buat
+   database seeder untuk tabel user. Buka CLI, kemudian tulis perintah berikut:` php spark make:seeder UserSeeder`
+
+2. Buka file `UserSeeder.php` yang berada di lokasi direktori
+   `/app/Database/Seeds/UserSeeder.php` kemudian isi dengan kode berikut:
+
+![Screenshot](public/readme/70.png)
+
+3. Buka kembali CLI dan ketik perintah berikut:
+   `php spark db:seed UserSeeder`
+
+![Screenshot](public/readme/71.png)
+
+### Auth filter.
+
+1. membuat fiter untuk halaman admin. Buat file baru dengan nama `Auth.php` pada
+   direktori `app/Filters.`
+
+![Screenshot](public/readme/72.png)
+
+2. Buka file `app/Config/Filters.php` tambahkan kode berikut: `'auth' => \App\Filters\Auth::class`
+
+![Screenshot](public/readme/73.png)
+
+3. Buka file `app/Config/Routes.php`.
+
+![Screenshot](public/readme/74.png)
+
+### Logout Func
+
+Tambahkan method logout pada Controller User seperti berikut:
+
+![Screenshot](public/readme/75.png)
+
+# Praktikum 5
+
+### Membuat Pagination
+
+1. Untuk membuat pagination, buka Kembali Controller Artikel, kemudian modifikasi kode
+   pada method `admin_index` seperti berikut.
+
+![Screenshot](public/readme/82.png)
+
+2. buka file `views/admin/admin_index.php` dan tambahkan kode berikut
+   dibawah deklarasi tabel data.
+
+![Screenshot](public/readme/77.png)
+
+![Screenshot](public/readme/78.png)
+
+### Membuat pencarian
+
+1. Untuk membuat pencarian data, buka kembali Controller Artikel, pada method
+   `admin_index` ubah kodenya seperti berikut.
+
+![Screenshot](public/readme/76.png)
+
+2. buka kembali file views/admin/admin_index.php dan tambahkan form
+   pencarian sebelum deklarasi tabel seperti berikut:
+
+![Screenshot](public/readme/79.png)
+
+3. Dan pada link pager ubah seperti berikut.
+
+![Screenshot](public/readme/80.png)
+
+![Screenshot](public/readme/81.png)
+
+# Praktikum 6
+
+### Upload Gambar pada Artikel
+
+1. Menambahkan fungsi unggah gambar pada tambah artikel.
+   Buka kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method
+   add seperti berikut:
+
+![Screenshot](public/readme/83.png)
+
+2. Kemudian pada file `views/admin/add.php` tambahkan field input file seperti
+   berikut.
+
+![Screenshot](public/readme/84.png)
+
+3. Hasil Output:
+
+![Screenshot](public/readme/85.png)
+
+![Screenshot](public/readme/86.png)

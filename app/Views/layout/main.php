@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
     <link rel="stylesheet" href="<?= base_url('style.css'); ?>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="container">
         <header>
-            <h1>Portal Artikel</h1>
+            <h1>BombarDiro News</h1>
         </header>
         <nav>
             <a href="<?= base_url('/page/home'); ?>">Home</a>
-            <a href="<?= base_url('/page/artikel'); ?>">Artikel</a>
             <a href="<?= base_url('/page/about'); ?>">About</a>
             <a href="<?= base_url('/page/contact'); ?>">Contact</a>
         </nav>
@@ -36,9 +39,6 @@
                 </div>
             </aside>
         </section>
-        <footer>
-            <p>&copy; 2021 - Universitas Pelita Bangsa</p>
-        </footer>
     </div>
 </body>
 

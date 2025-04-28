@@ -5,8 +5,9 @@
         <li>
             <a href="<?= base_url('page/artikel/' . $row['slug']) ?>">
                 <h4><?= $row['judul'] ?></h4>
-                <small>(<?= date('d M Y', strtotime($row['tanggal'])) ?>)</small>
+                <small><?= date('d M Y', strtotime($row['tanggal'])) ?></small>
             </a>
+            <hr>
         </li>
     <?php endforeach; ?>
 </ul>
