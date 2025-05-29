@@ -24,6 +24,11 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->add('add', 'Artikel::add');
     $routes->add('edit/(:num)', 'Artikel::edit/$1');
     $routes->get('delete/(:any)', 'Artikel::delete/$1');
+
+    // Menggunakan Ajax
+    $routes->get('ajax', 'AjaxController::index');
+    $routes->get('ajax/getData', 'AjaxController::getData');
+    $routes->delete('ajax/delete/(:num)', 'AjaxController::delete/$1');
 });
 
 // Group untuk halaman User

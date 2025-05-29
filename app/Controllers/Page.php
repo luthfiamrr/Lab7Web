@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ArtikelModel;
+use App\Models\KategoriModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Page extends BaseController
@@ -17,8 +18,13 @@ class Page extends BaseController
 
     public function artikel($slug)
     {
-        $model = new ArtikelModel();
-        $artikel = $model->where('slug', $slug)->first();
+        $modelArtikel = new ArtikelModel();
+
+        $artikel = $modelArtikel
+            ->select('artikel.*, kategori.nama_kategori')
+            ->join('kategori', 'kategori.id_kategori = artikel.id_kategori')
+            ->where('artikel.slug', $slug)
+            ->first();
 
         if (!$artikel) {
             throw PageNotFoundException::forPageNotFound();

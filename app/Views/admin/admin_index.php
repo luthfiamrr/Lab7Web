@@ -10,6 +10,7 @@
         <tr>
             <th>ID</th>
             <th>Judul</th>
+            <th>Kategori</th>
             <th>Tanggal</th>
             <th>Aksi</th>
         </tr>
@@ -21,6 +22,9 @@
                     <td>
                         <b><?= $row['judul']; ?></b>
                         <p><small><?= substr($row['isi'], 0, 50); ?></small></p>
+                    </td>
+                    <td style="text-align: center;">
+                        <style></style><b><?= $row['nama_kategori']; ?></b>
                     </td>
                     <td><?= $row['tanggal']; ?></td>
                     <td>

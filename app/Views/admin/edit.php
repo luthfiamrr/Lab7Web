@@ -1,19 +1,54 @@
 <?= $this->include('template/admin_header'); ?>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <h2><?= $title; ?></h2>
     <p>
-        <input type="text" name="judul" value="<?= $data['judul']; ?>" required>
+        <input type="text" name="judul" placeholder="Judul Artikel"
+            value="<?= old('judul', $data['judul']) ?>">
+        <?php if (isset($errors['judul'])): ?>
+            <span style="color:red; font-size:12px;"><?= $errors['judul'] ?></span>
+        <?php endif; ?>
+    </p>
+    <!-- Validasi Kategori -->
+    <p>
+        <select name="kategori" id="kategoriSelect" onchange="toggleKategoriBaru()">
+            <option value="">- Pilih Kategori -</option>
+            <?php foreach ($kategori as $kat) : ?>
+                <option value="<?= $kat['id_kategori'] ?>"
+                    <?= old('kategori', $data['id_kategori']) == $kat['id_kategori'] ? 'selected' : '' ?>>
+                    <?= $kat['nama_kategori'] ?>
+                </option>
+            <?php endforeach; ?>
+            <option value="new" <?= old('kategori') === 'new' ? 'selected' : '' ?>>+ Buat Kategori Baru</option>
+        </select>
+        <?php if (isset($errors['kategori'])): ?>
+            <span style="color:red; font-size:12px;"><?= $errors['kategori'] ?></span>
+        <?php endif; ?>
+    </p>
+    <!-- Validasi Kategori Baru -->
+    <p id="newKategoriContainer" style="<?= old('kategori') === 'new' ? '' : 'display:none;' ?>">
+        <input type="text" name="kategori_baru" placeholder="Nama Kategori Baru"
+            value="<?= old('kategori_baru') ?>">
+        <?php if (isset($errors['kategori_baru'])): ?>
+            <span style="color:red; font-size:12px;"><?= $errors['kategori_baru'] ?></span>
+        <?php endif; ?>
     </p>
     <p>
-        <input type="text" name="kategori" value="<?= $data['kategori']; ?>" required>
+        <textarea name="isi" cols="50" rows="7" placeholder="Isi Artikel"><?= old('isi', $data['isi']) ?></textarea>
     </p>
     <p>
-        <textarea name="isi" cols="50" rows="10"><?= $data['isi']; ?></textarea>
+        <input type="file" name="gambar">
     </p>
     <p>
         <input type="submit" value="Kirim" class="btn-large">
     </p>
 </form>
+<script>
+    function toggleKategoriBaru() {
+        const select = document.getElementById('kategoriSelect');
+        const container = document.getElementById('newKategoriContainer');
+        container.style.display = (select.value === 'new') ? 'block' : 'none';
+    }
+</script>
 
 <?= $this->include('template/admin_footer'); ?>

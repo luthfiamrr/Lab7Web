@@ -3,8 +3,8 @@
 <ul>
     <?php foreach ($kategoriList as $kategori): ?>
         <li>
-            <a href="<?= base_url('/page/home/' . urlencode($kategori['kategori'])) ?>">
-                <?= ucfirst($kategori['kategori']) ?>
+            <a href="<?= base_url('/page/home/' . urlencode($kategori['slug_kategori'])) ?>">
+                <?= ucfirst($kategori['nama_kategori']) ?>
             </a>
         </li>
     <?php endforeach; ?>

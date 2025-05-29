@@ -476,3 +476,68 @@ Tambahkan method logout pada Controller User seperti berikut:
 ![Screenshot](public/readme/85.png)
 
 ![Screenshot](public/readme/86.png)
+
+# Praktikum 7
+
+### Membuat tabel kategori & relasi antar tabel.
+
+![Screenshot](public/readme/87.png)
+
+### Kategori(ONE) -> Artikel(MANY)
+
+![Screenshot](public/readme/88.png)
+
+### Testing
+
+1. Menampilkan daftar artikel dengan nama kategori.
+
+![Screenshot](public/readme/89.png)
+
+after filter kategori (WEB):
+
+![Screenshot](public/readme/90.png)
+
+2. Menambah artikel baru dengan memilih kategori.
+
+![Screenshot](public/readme/91.png)
+
+3. Mengedit artikel dan mengubah kategorinya.
+
+![Screenshot](public/readme/92.png)
+
+![Screenshot](public/readme/93.png)
+
+4. Modifikasi tampilan detail artikel (artikel/detail.php) untuk menampilkan nama kategori
+   artikel.
+
+![Screenshot](public/readme/94.png)
+
+# Praktikum 8
+
+### Menambahkan pustaka jQuery
+
+![Screenshot](public/readme/95.png)
+
+### Membuat Ajax Controller
+
+![Screenshot](public/readme/96.png)
+
+### Membuat View
+
+![Screenshot](public/readme/97.png)
+
+### Membuat Routes
+
+![Screenshot](public/readme/98.png)
+
+### Hasil Output
+
+1. routes `$routes->get('ajax', 'AjaxController::index');`
+
+![Screenshot](public/readme/99.png)
+
+2. routes `$routes->get('ajax/getData', 'AjaxController::getData');`
+
+![Screenshot](public/readme/100.png)
+
+# Praktikum 9
