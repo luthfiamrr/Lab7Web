@@ -37,3 +37,6 @@ $routes->group('user', function ($routes) {
     $routes->match(['get', 'post'], 'login', 'User::login'); // Akses: /user/login (GET buat nampilin form, POST buat proses login)
     $routes->post('logout', 'User::logout');
 });
+
+// Restfull API
+$routes->resource('post');

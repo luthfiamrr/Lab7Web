@@ -541,3 +541,41 @@ after filter kategori (WEB):
 ![Screenshot](public/readme/100.png)
 
 # Praktikum 9
+
+1. Membuat ajax controller `/app/Controllers/AjaxController.php` untuk menampilkan data dan mengimplement pagination dan search
+
+![Screenshot](public/readme/101.png)
+
+2. Membuat tampilan dengan membuat file `/app/Views/admin/admin_ajax.php`
+
+![Screenshot](public/readme/102.png)
+
+3. Berikut adalah data tampilan yang dipanggil menggunakan ajax dengan routes `admin/ajax`
+
+![Screenshot](public/readme/103.png)
+
+# Praktikum 10
+
+1. Membuat REST Controller dengan file `/app/Controllers/Post.php`
+
+![Screenshot](public/readme/104.png)
+
+2. Membuat Routes baru untuk REST API `$routes->resource('post');`
+
+![Screenshot](public/readme/106.png)
+
+3. Testing methode GET
+
+![Screenshot](public/readme/105.png)
+
+4. Testing methode POST
+
+![Screenshot](public/readme/107.png)
+
+5. Testing methode PUT
+
+![Screenshot](public/readme/108.png)
+
+6. Testing methode DELETE
+
+![Screenshot](public/readme/109.png)
